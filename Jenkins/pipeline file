@@ -1,0 +1,3 @@
+node('Ak'){
+    sh'ansible-playbook /root/Developer/Terraform/playbook.yaml'
+}
