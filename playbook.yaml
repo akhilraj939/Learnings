@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  tasks:
+  - name: plan
+    terraform:
+     force_init: true
+     project_path: '/root/Developer/Terraform'
+     plan_file: '/root/Developer/Terraform/tfplan'
+     lock: true
+     state: planned
+  - name: apply
+    terraform:
+     project_path: '/root/Developer/Terraform'
+     lock: true
+     state: present
+     
