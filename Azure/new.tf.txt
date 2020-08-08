@@ -1,0 +1,83 @@
+resource "azurerm_resource_group" "resource" {
+  name     = "${var.resourcegroup}"
+  location = "EAST US"
+}
+resource "azurerm_virtual_network" "vnetwork" {
+  name                = "${var.vnet}"
+  address_space       = "${var.address_space}"
+  location            = "EAST US"
+  resource_group_name = azurerm_resource_group.resource.name
+}
+resource "azurerm_subnet" "subnet" {
+  name                 = "${var.subnetname}"
+  resource_group_name  = azurerm_resource_group.resource.name
+  virtual_network_name = azurerm_virtual_network.vnetwork.name
+  address_prefix       = "${var.address_sub}"
+}
+resource "azurerm_network_interface" "network_interface" {
+  name                = "${var.network}"
+  location            = azurerm_resource_group.resource.location
+  resource_group_name = azurerm_resource_group.resource.name
+  ip_configuration {
+    name                          = "Demoip"
+    subnet_id                     = azurerm_subnet.subnet.id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+resource "azurerm_network_security_group" "securitygroup" {
+  name                = "${var.security_group}"
+  location            = azurerm_resource_group.resource.location
+  resource_group_name = azurerm_resource_group.resource.name
+  security_rule {
+    name                       = "SR"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+resource "azurerm_virtual_machine" "newvm" {
+  name                  = "${var.virtual_name}"
+  location              = azurerm_resource_group.resource.location
+  resource_group_name   = azurerm_resource_group.resource.name
+  network_interface_ids = [azurerm_network_interface.main.id]
+  vm_size               = "Standard_DS1_v2"
+   storage_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
+    version   = "latest"
+  }
+  storage_os_disk {
+    name              = "Storagenew"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+  }
+  os_profile {
+    computer_name  = "hostname"
+    admin_username = "Origins@123"
+    admin_password = "Hubs!12345"
+  }
+  os_profile_linux_config {
+    disable_password_authentication = false
+  }
+}
+resource "azurerm_storage_account" "storage" {
+  name                     = "storagenew"
+  resource_group_name      = azurerm_resource_group.resource.name
+  location                 = azurerm_resource_group.resource.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+}
+resource "azure_data_disk" "data" {
+  lun                  = 0
+  size                 = 20
+  storage_service_name = ""
+  virtual_machine      = "virtualnew"
+}
+

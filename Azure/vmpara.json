@@ -1,0 +1,80 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "networkInterfaceName": {
+            "value": "newinstance1"
+        },
+        "networkSecurityGroupName": {
+            "value": "Newinstance-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/21224429-6768-4f4b-9cef-a6f01f1ed6ea/resourceGroups/RG/providers/Microsoft.Network/virtualNetworks/Mynewvn"
+        },
+        "publicIpAddressName": {
+            "value": "Newinstance-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "Newinstance"
+        },
+        "virtualMachineComputerName": {
+            "value": "Newinstance"
+        },
+        "virtualMachineRG": {
+            "value": "RG"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "adminUsername": {
+            "value": "akhilraj939"
+        },
+        "adminPassword": {
+            "value": ""
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "newstorage123212"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "Microsoft.Storage/storageAccounts/newstorage123212"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "diagnosticsStorageAccountKind": {
+            "value": "Storage"
+        }
+    }
+}

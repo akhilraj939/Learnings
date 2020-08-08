@@ -1,0 +1,123 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "MyKeYVau"
+        },
+        "location": {
+            "value": "eastus"
+        },
+        "sku": {
+            "value": "Standard"
+        },
+        "accessPolicies": {
+            "value": [
+                {
+                    "objectId": "179e1ffd-616b-43ca-b34a-2b63d3b385cc",
+                    "tenantId": "8f6466c5-7ff6-41e0-8f44-18e8ec224301",
+                    "permissions": {
+                        "keys": [
+                            "Get",
+                            "List"
+                        ],
+                        "secrets": [
+                            "Get",
+                            "List"
+                        ],
+                        "certificates": []
+                    },
+                    "applicationId": null
+                },
+                {
+                    "objectId": "73009ffb-a113-460a-a2c9-85b82e474d30",
+                    "tenantId": "8f6466c5-7ff6-41e0-8f44-18e8ec224301",
+                    "permissions": {
+                        "keys": [
+                            "Get",
+                            "List"
+                        ],
+                        "secrets": [
+                            "Get",
+                            "List"
+                        ],
+                        "certificates": []
+                    },
+                    "applicationId": null
+                },
+                {
+                    "objectId": "57ba33e1-5419-4055-aae8-4674c4fed0d9",
+                    "tenantId": "8f6466c5-7ff6-41e0-8f44-18e8ec224301",
+                    "permissions": {
+                        "keys": [
+                            "Get",
+                            "List",
+                            "Update",
+                            "Create",
+                            "Import",
+                            "Delete",
+                            "Recover",
+                            "Backup",
+                            "Restore"
+                        ],
+                        "secrets": [
+                            "Get",
+                            "List",
+                            "Set",
+                            "Delete",
+                            "Recover",
+                            "Backup",
+                            "Restore"
+                        ],
+                        "certificates": [
+                            "Get",
+                            "List",
+                            "Update",
+                            "Create",
+                            "Import",
+                            "Delete",
+                            "Recover",
+                            "Backup",
+                            "Restore",
+                            "ManageContacts",
+                            "ManageIssuers",
+                            "GetIssuers",
+                            "ListIssuers",
+                            "SetIssuers",
+                            "DeleteIssuers"
+                        ]
+                    }
+                }
+            ]
+        },
+        "tenant": {
+            "value": "8f6466c5-7ff6-41e0-8f44-18e8ec224301"
+        },
+        "enabledForDeployment": {
+            "value": false
+        },
+        "enabledForTemplateDeployment": {
+            "value": false
+        },
+        "enabledForDiskEncryption": {
+            "value": false
+        },
+        "enableRbacAuthorization": {
+            "value": false
+        },
+        "enableSoftDelete": {
+            "value": true
+        },
+        "softDeleteRetentionInDays": {
+            "value": 90
+        },
+        "networkAcls": {
+            "value": {
+                "defaultAction": "allow",
+                "bypass": "AzureServices",
+                "ipRules": [],
+                "virtualNetworkRules": []
+            }
+        }
+    }
+}

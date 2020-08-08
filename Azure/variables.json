@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionId": {
+            "value": "21224429-6768-4f4b-9cef-a6f01f1ed6ea"
+        },
+        "name": {
+            "value": "Appserver1"
+        },
+        "location": {
+            "value": "East US"
+        },
+        "hostingPlanName": {
+            "value": "newplanning"
+        },
+        "serverFarmResourceGroup": {
+            "value": "newvm123"
+        },
+        "alwaysOn": {
+            "value": true
+        },
+        "sku": {
+            "value": "Standard"
+        },
+        "skuCode": {
+            "value": "S1"
+        },
+        "workerSize": {
+            "value": "0"
+        },
+        "workerSizeId": {
+            "value": "0"
+        },
+        "numberOfWorkers": {
+            "value": "1"
+        },
+        "currentStack": {
+            "value": "dotnetcore"
+        },
+        "phpVersion": {
+            "value": "OFF"
+        },
+        "errorLink": {
+            "value": "https://Appserver1.scm.azurewebsites.net/detectors?type=tools&name=eventviewer"
+        }
+    }
+}
