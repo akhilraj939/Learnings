@@ -1,7 +1,7 @@
 ---
 apiServer:
   certSANs:
-    - 52.149.152.174
+    - 13.91.33.81
 apiVersion: kubeadm.k8s.io/v1beta2
 controllerManager: {}
 dns:

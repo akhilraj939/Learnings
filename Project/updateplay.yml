@@ -7,25 +7,39 @@
       url: 'https://github.com/flanksource/konfigadm/releases/download/v0.5.3/konfigadm'
       dest: /usr/bin/
       mode: 'u+x'
+  - name: create directory
+    file:
+      path: home/akhil/projectdirec
+      state: directory
+      mode: '0777'
   - git:
       repo: 'https://github.com/akhilraj939/Learnings'
-      dest: ~/new
-  - name: execute
-    shell: sudo konfigadm apply --config=/tmp/konfigadm.yml
-  - git:
-      repo: 'https://github.com/akhilraj939/Learnings/blob/master/Project/kubeadm.yml'
+      dest: /home/akhil/projectdirec/
+  - name: Copy file
+    copy:
+      src: /home/akhil/projectdirec/Project/konfigadm.yml
       dest: /tmp/
+      mode: '0777'
+  - name: execute
+    shell: konfigadm apply --config=/tmp/konfigadm.yml
+    become: True
+  - name: Copy file 1
+    copy:
+      src: /home/akhil/projectdirec/Project/kubeadm.yml
+      dest: /tmp/
+      mode: '0777'
   - name: execute1
-    shell: sudo kubeadm init --config /tmp/kubeadm.yaml
+    shell: kubeadm init --config=/tmp/kubeadm.yml
+    become: True
   - name: Create a directory if it does not exist
     file:
-      path: ~/.kube
+      path: /home/akhil/.kube
       state: directory
       mode: '0777'
   - name: Copy file
     copy:
       src: /etc/kubernetes/admin.conf
-      dest: ~/.kube/config
+      dest: /home/akhil/.kube/	
       mode: '0777'
   - name: execute
     shell: sudo kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
