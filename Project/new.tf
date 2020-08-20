@@ -113,7 +113,7 @@ resource "azurerm_virtual_machine" "newvm" {
   }
 }
 resource "azurerm_storage_account" "storage" {
-  name                     = "stwpraoject"
+  name                     = "stwpraoct"
   resource_group_name      = azurerm_resource_group.resource.name
   location                 = azurerm_resource_group.resource.location
   account_tier             = "Standard"
