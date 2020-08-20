@@ -43,7 +43,9 @@
     shell: sudo cp -i /etc/kubernetes/admin.conf /home/akhil/.kube/config && sudo chown $(id -u):$(id -g) 
     become: True
   - name: 1
-    shell: sudo kubectl get -n kube-system pods
+    shell: sudo kubectl get -n kube-system pods >> 1234567
     become: True
-  
+  - name: qds
+    shell: cat 1234567
+    become: True
   
