@@ -39,5 +39,7 @@
   - name: execute
     shell: sudo kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
   - name: last
-    shell: echo "kubectl get -n kube-system pods"
+    shell: kubectl get -n kube-system pods >> akhil
     become: True
+  - name: common
+    shell: cat akhil
