@@ -9,16 +9,11 @@
       mode: 'u+x'
   - name: create directory
     file:
-<<<<<<< HEAD
       path: home/akhil/projectdirec
-=======
-      path: ~/projectdirec
->>>>>>> ede75761bb7530258835123a3c83efb5e5b19a6e
       state: directory
       mode: '0777'
   - git:
       repo: 'https://github.com/akhilraj939/Learnings'
-<<<<<<< HEAD
       dest: /home/akhil/projectdirec/
   - name: Copy file
     copy:
@@ -39,36 +34,11 @@
   - name: Create a directory if it does not exist
     file:
       path: /home/akhil/.kube
-=======
-      dest: ~/projectdirec
-  - name: Copy file
-    copy:
-      src: ~/projectdirec/konfigadm.yml
-      dest: /tmp/
-      mode: '0777'
-  - name: execute
-    shell: sudo konfigadm apply --config=/tmp/konfigadm.yml
-  - name: Copy file 1
-    copy:
-      src: ~/projectdirec/kubeadm.yml
-      dest: /tmp/
-      mode: '0777'
-  - name: execute1
-    shell: sudo kubeadm init --config /tmp/kubeadm.yaml
-  - name: Create a directory if it does not exist
-    file:
-      path: ~/.kube
->>>>>>> ede75761bb7530258835123a3c83efb5e5b19a6e
-      state: directory
       mode: '0777'
   - name: Copy file
     copy:
       src: /etc/kubernetes/admin.conf
-<<<<<<< HEAD
       dest: /home/akhil/.kube/	
-=======
-      dest: ~/.kube/config
->>>>>>> ede75761bb7530258835123a3c83efb5e5b19a6e
       mode: '0777'
   - name: execute
     shell: sudo kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
