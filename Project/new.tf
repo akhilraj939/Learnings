@@ -10,7 +10,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "resource" {
-  name     = "projtsource"
+  name     = "projtsce"
   location = "West US 2"
 }
 
