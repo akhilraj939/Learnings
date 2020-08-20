@@ -35,10 +35,5 @@
     file:
       path: /home/akhil/.kube
       mode: '0777'
-  - name: Copy file
-    copy:
-      src: sudo /etc/kubernetes/admin.conf
-      dest: /home/akhil/.kube/	
-      mode: '0777'
   - name: execute
     shell: sudo kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
