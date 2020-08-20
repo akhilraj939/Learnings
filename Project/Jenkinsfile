@@ -1,0 +1,17 @@
+pipeline {
+  agent { label 'Akhilfinalproject'}
+  stages{
+    stage('Build'){
+      sh '''
+         git clone https://github.com/akhilraj939/Learnings.git
+         cd Learnings/Project
+         terraform init
+         terraform plan
+         terraform apply --auto-approve
+      '''
+    }
+   }
+  }
+ } 
+     
+    
