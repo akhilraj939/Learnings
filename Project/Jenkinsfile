@@ -4,6 +4,7 @@ pipeline {
         stage('Build'){
           steps {
              sh '''
+               cleanWs()
                git clone https://github.com/akhilraj939/Learnings.git
                cd Learnings/Project
                terraform init
