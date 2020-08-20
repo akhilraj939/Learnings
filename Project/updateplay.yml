@@ -34,6 +34,7 @@
   - name: Create a directory if it does not exist
     file:
       path: /home/akhil/.kube
+      state: directory
       mode: '0777'
   - name: execute
     shell: sudo kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
