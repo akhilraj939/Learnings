@@ -129,7 +129,7 @@ resource "azurerm_virtual_machine_extension" "new1" {
   settings = <<SETTINGS
 
  {
-        "fileUris": ["https://gist.githubusercontent.com/akhilraj939/c31199745d8bded080062f508d76255f/raw/408b737c5a62800bb7db4b2adb517a53b396aeec/script.sh"],
+        "fileUris": ["https://gist.githubusercontent.com/akhilraj939/c31199745d8bded080062f508d76255f/raw/1e8502fefbc7807c0db186a4b4876b71e4f6d020/script.sh"],
         "commandToExecute": "bash script.sh"
     }
 SETTINGS
