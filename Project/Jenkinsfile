@@ -9,6 +9,7 @@ pipeline {
                terraform init
                terraform plan
                terraform apply --auto-approve
+               sudo kubectl get -n kube-system pods
              '''
     }
    }
