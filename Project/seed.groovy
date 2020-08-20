@@ -6,8 +6,6 @@ pipelineJob(job_path) {
     logRotator {
         daysToKeep(30)
     }
-   
-    
     definition {
         cps {
             script(readFileFromWorkspace("${job_path}/Jenkinsfile"))
