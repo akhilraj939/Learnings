@@ -38,6 +38,9 @@
       mode: '0777'
   - name: execute
     shell: sudo kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
+  - name: new
+    shell: KUBECONFIG = /etc/kubernetes/admin.conf
+    become: True
   - name: last
     shell: kubectl get -n kube-system pods >> akhil
     become: True
