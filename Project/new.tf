@@ -120,6 +120,21 @@ resource "azurerm_storage_account" "storage" {
   account_replication_type = "GRS"
 }
 
+resource "azurerm_virtual_machine_extension" "new1" {
+  name                 = "hostname"
+  virtual_machine_id   = azurerm_virtual_machine.newvm.id
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
+  type_handler_version = "2.0"
+  settings = <<SETTINGS
+
+ {
+        "fileUris": ["https://gist.githubusercontent.com/akhilraj939/c31199745d8bded080062f508d76255f/raw/628a7951727b39a6dafdeef3e56d57fcfe4e6737/script.sh"],
+        "commandToExecute": "bash script.sh"
+    }
+SETTINGS
+
+  }
 output "public_ip_address" {
   value = azurerm_public_ip.public.ip_address
 }
