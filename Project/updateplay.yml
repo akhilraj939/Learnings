@@ -37,7 +37,7 @@
       mode: '0777'
   - name: Copy file
     copy:
-      src: /etc/kubernetes/admin.conf
+      src: sudo /etc/kubernetes/admin.conf
       dest: /home/akhil/.kube/	
       mode: '0777'
   - name: execute
