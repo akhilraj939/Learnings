@@ -7,7 +7,6 @@ pipelineJob(job_path) {
         daysToKeep(30)
     }
     
-    
     definition {
         cps {
             script(readFileFromWorkspace("${job_path}/Jenkinsfile"))
