@@ -39,3 +39,11 @@
   - name: execute
     shell: sudo kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
     become: True
+  - name: new
+    shell: sudo cp -i /etc/kubernetes/admin.conf /home/akhil/.kube/config && sudo chown $(id -u):$(id -g) 
+    become: True
+  - name: 1
+    shell: sudo kubectl get -n kube-system pods
+    become: True
+  
+  
