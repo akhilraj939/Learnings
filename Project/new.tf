@@ -10,7 +10,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "resource" {
-  name     = "projtscacase"
+  name     = "projtscacaszxcxe"
   location = "West US 2"
 }
 
@@ -113,7 +113,7 @@ resource "azurerm_virtual_machine" "newvm" {
   }
 }
 resource "azurerm_storage_account" "storage" {
-  name                     = "stwpracasoject"
+  name                     = "stwpracafvdfvfsoject"
   resource_group_name      = azurerm_resource_group.resource.name
   location                 = azurerm_resource_group.resource.location
   account_tier             = "Standard"
