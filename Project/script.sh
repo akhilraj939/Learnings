@@ -7,3 +7,5 @@ git clone https://github.com/akhilraj939/Learnings.git
 cd Learnings/Project
 
 sudo ansible-playbook updateplay.yml
+sudo kubectl get -n kube-system pods >> akhil
+cat akhil
